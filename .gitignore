@@ -1,0 +1,54 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+/frontend/node_modules
+
+# logs
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# VSCode 
+.vscode/*
+!.vscode/extensions.json
+
+# Sistema operacional
+*.log
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Chaves e segredos (importante para DevOps)
+*.key
+*.pem
+*.p12
+*.p8
+secrets/
+.secrets
+
+# Cache
+.cache/
+.npm/
+
+# Setup
+setup.sh
