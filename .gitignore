@@ -51,4 +51,11 @@ secrets/
 .npm/
 
 # Setup
-setup.sh
+*.sh
+
+*.terraform
+*.terraform.lock.hcl
+
+*.txt
+
+*.pub
