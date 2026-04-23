@@ -103,7 +103,7 @@ resource "azurerm_network_security_group" "nsg-devops" {
     destination_address_prefix = "*"
   }
 
-  # Frontend (5173)
+  # Frontend (4321)
   security_rule {
     name                       = "allow-frontend"
     priority                   = 1020
@@ -111,7 +111,7 @@ resource "azurerm_network_security_group" "nsg-devops" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "5173"
+    destination_port_range     = "4321"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }

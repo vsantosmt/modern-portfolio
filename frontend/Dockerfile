@@ -21,14 +21,11 @@ RUN npm run build
 # =========================
 FROM nginx:alpine
 
-# Remove config default (opcional)
-RUN rm /etc/nginx/conf.d/default.conf
+RUN rm -f /etc/nginx/conf.d/default.conf
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copia arquivos estáticos gerados pelo Astro
 COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copia configuração customizada do nginx (opcional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
