@@ -1,0 +1,23 @@
+name: prd
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+env:
+  IMAGE_NAME: vsantosmt/modern-portfolio
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      # 1. Pegar o código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Build Docker
+      - name: Build Docker compose
+        run: docker compose up --build
