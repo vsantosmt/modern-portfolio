@@ -21,3 +21,4 @@ jobs:
       # 2. Build Docker
       - name: Build Docker compose
         run: docker compose up --build
+
