@@ -18,7 +18,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Build Docker
-      - name: Build Docker compose
-        run: docker compose up --build
+      # 2. Login Docker Hub
+      - name: Login Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
+      # 3. Build Docker
+      - name: Build Image
+        run: docker build -t $IMAGE_NAME:latest .
+
+      # 4. Push Docker Hub
+      - name: Push Image
+        run: docker push $IMAGE_NAME:latest
+
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      # 1. Login Docker Hub
+      - name: Login Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
+      # 2. Deploy
+      - name: Pull Image and Deploy Application
+        run: |
+          docker compose pull
+          docker compose up -d --remove-orphans
