@@ -24,7 +24,7 @@ jobs:
 
       # 3. Build Docker
       - name: Build Image
-        run: docker build -t $IMAGE_NAME:latest ./front
+        run: docker build -t $IMAGE_NAME:latest ./frontend
 
       # 4. Push Docker Hub
       - name: Push Image
