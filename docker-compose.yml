@@ -1,5 +1,6 @@
 services:
-  app:
+  frontend:
+    image: vsantosmt/modern-portfolio:{TAG_VERSION}
     build: ./frontend
     container_name: frontend
     ports:
